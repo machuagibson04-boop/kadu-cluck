@@ -1,202 +1,330 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Kadu Cluck - Order Farm Fresh Chicken</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- Open Graph for WhatsApp link preview -->
-  <meta property="og:title" content="Kadu Cluck - Farm Fresh Chicken & Eggs">
-  <meta property="og:description" content="Order directly on WhatsApp. Fast delivery in Nairobi.">
-  <meta property="og:image" content="logo.png">
-  <meta property="og:type" content="website">
-  
-  <style>
-    * { box-sizing: border-box; }
-    body { 
-      font-family: -apple-system, Arial, sans-serif; 
-      text-align: center; 
-      padding: 16px 12px 80px; /* bottom padding for sticky button */
-      margin: 0;
-      min-height: 100vh;
-      background: #fff8e1;
-      position: relative;
-    }
-    /* Subtle watermark for status screenshots */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-image: url('logo.png');
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 90%;
-      opacity: 0.30;
-      z-index: -1;
-    }
-    h1 { color: #d32f2f; font-size: 28px; margin: 8px 0 4px; letter-spacing: 0.5px; }
-    .tagline { font-size: 14px; color: #555; margin-bottom: 20px; font-weight: 500; }
-    
-    .wrapper { max-width: 500px; margin: 0 auto; }
-    
-    .section-title {
-      font-size: 13px;
-      font-weight: 700;
-      color: #d32f2f;
-      margin: 18px 0 10px;
-      text-align: left;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    
-    .btn { 
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: #d32f2f; 
-      color: white; 
-      padding: 14px 16px; 
-      margin: 10px 0; 
-      width: 100%; 
-      border-radius: 12px; 
-      text-decoration: none; 
-      font-size: 15px; 
-      font-weight: 700; 
-      box-shadow: 0 3px 8px rgba(0,0,0,0.12);
-      transition: transform 0.1s ease;
-    }
-    .btn:active { transform: scale(0.98); }
-    
-    /* Button colors */
-    .btn-whatsapp { background: #25D366; }
-    .btn-facebook { background: #1877F2; }
-    .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
-    .btn-tiktok { background: #000; }
-    .btn-blue { background: #1a73e8; }
-    .btn-truecaller { background: #2196F3; }
-    .btn-paybill { 
-      background: #00a651; 
-      cursor: pointer;
-      position: relative;
-    }
-    .btn-paybill::after {
-      content: "Tap to copy";
-      position: absolute;
-      right: 16px;
-      font-size: 11px;
-      opacity: 0.8;
-      font-weight: 500;
-    }
-    
-    /* Sticky main CTA for Status viewers */
-    .btn-primary {
-      position: fixed;
-      bottom: 12px;
-      left: 12px;
-      right: 12px;
-      width: auto;
-      max-width: 500px;
-      margin: 0 auto;
-      z-index: 10;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 3px 8px rgba(37, 211, 102, 0.4); }
-      50% { box-shadow: 0 3px 16px rgba(37, 211, 102, 0.7); }
-    }
-    
-    .icon {
-      width: 22px;
-      height: 22px;
-      flex-shrink: 0;
-      border-radius: 4px;
-    }
-    
-    .paybill-text { 
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 2px;
-      flex: 1;
-    }
-    .paybill-text small { 
-      font-size: 12px; 
-      font-weight: 500; 
-      opacity: 0.95;
-    }
-    
-    .divider {
-      height: 1px;
-      background: rgba(211,47,0.2);
-      margin: 24px 0 8px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Farm Fresh Chicken from Kadu Cluck - Healthy, clean preparation and reliable delivery in Kenya.">
+<title>Kadu Cluck | Farm Fresh Chicken</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+body{
+font-family:Poppins,sans-serif;
+background:#fff7f7;
+margin:0;
+overflow-x:hidden;
+}
+.hero{
+background:linear-gradient(135deg,#7a0000,#b30000);
+}
+.card{
+background:white;
+border-radius:24px;
+box-shadow:0 8px 24px rgba(0,0,0,.08);
+}
+.btn{
+padding:.9rem 1.4rem;
+border-radius:9999px;
+font-weight:700;
+display:inline-block;
+text-decoration:none;
+transition:.3s;
+}
+.btn:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+.gallery img{
+border-radius:20px;
+width:100%;
+max-height:220px;
+object-fit:cover;
+transition: transform 0.3s;
+}
+.gallery img:hover{
+transform: scale(1.05);
+}
+.chicken-pop{
+position:fixed;
+font-size:32px;
+animation:rise 2.5s linear forwards;
+pointer-events:none;
+z-index:50;
+}
+@keyframes rise{
+0%{
+opacity:1;
+transform:translateY(0);
+}
+100%{
+opacity:0;
+transform:translateY(-280px);
+}
+}
+</style>
 </head>
 <body>
-  <h1>KADU CLUCK</h1>
-  <p class="tagline">Farm Fresh Chicken & Eggs • Nairobi</p>
-  
-  <div class="wrapper">
-    
-    <!-- Order & Contact First - Priority for Status -->
-    <p class="section-title">Order Now</p>
-    <a class="btn btn-whatsapp" href="https://wa.me/254796795818?text=Niaje%20Kadu%20Cluck%2C%20nataka%20kuorder" target="_blank">
-      <img class="icon" src="whatsapp.png" loading="eager" alt=""> Chat & Order on WhatsApp
-    </a>
-    <a class="btn btn-truecaller" href="tel:+254796795818">
-      <img class="icon" src="truecaller.png" loading="eager" alt=""> Call: Phone Number
-    </a>
-    <div class="btn btn-paybill" onclick="copyPaybill()">
-      <span class="icon">💰</span>
-      <div class="paybill-text">
-        Pay via M-Pesa Paybill
-        <small>Paybill: 542542 | Acc: 415968</small>
-      </div>
-    </div>
-    
-    <div class="divider"></div>
-    
-    <p class="section-title">Find Us Online</p>
-    <a class="btn" href="https://machuagibson04-boop.github.io/Kadu-Cluck/" target="_blank">
-      <img class="icon" src="logo.png" alt=""> Main Website
-    </a>
-    <a class="btn btn-whatsapp" href="https://chat.whatsapp.com/BhdQ2JmoGcA2YUSOETHUeO" target="_blank">
-      <img class="icon" src="whatsapp-b.png" alt=""> Join WhatsApp Group
-    </a>
-    <a class="btn btn-facebook" href="https://www.facebook.com/share/171VrNJ5jf/" target="_blank">
-      <img class="icon" src="facebook.png" alt=""> Facebook Page
-    </a>
-    <a class="btn btn-instagram" href="https://instagram.com/kadu_tandu" target="_blank">
-      <img class="icon" src="instagram.png" alt=""> Instagram
-    </a>
-    <a class="btn btn-tiktok" href="https://www.tiktok.com/@kadufarm" target="_blank">
-      <img class="icon" src="tiktok.png" alt=""> TikTok
-    </a>
-    <a class="btn btn-blue" href="https://maps.app.goo.gl/Gyk3oDLZw7fGQHNZA" target="_blank">
-      <span class="icon">📍</span> Get Directions
-    </a>
-    
-  </div>
-  
-  <!-- Sticky CTA - Shows when scrolling -->
-  <a class="btn btn-whatsapp btn-primary" href="https://wa.me/254796795818?text=Niaje%20Kadu%20Cluck%2C%20nataka%20kuorder" target="_blank">
-    <img class="icon" src="whatsapp.png" alt=""> Order on WhatsApp
-  </a>
-  
-  <p style="margin-top:24px; font-size:11px; color:#777;">© Kadu Cluck 2026</p>
+
+<header class="sticky top-0 bg-white shadow z-50">
+<div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+<img src="kadu-image-1.jpeg"
+class="w-24 rounded-xl"
+alt="Kadu Cluck Logo">
+<div class="flex gap-3 flex-wrap">
+<a
+href="https://wa.me/254796795818"
+target="_blank"
+class="btn bg-green-500 text-white">
+WhatsApp
+</a>
+<a
+href="tel:+254796795818"
+class="btn bg-green-700 text-white">
+Call
+</a>
+</div>
+</div>
+</header>
+
+<section class="hero text-white py-12">
+<div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+<div>
+<div class="flex items-center gap-4">
+<img
+src="kadu-image-1.jpeg"
+class="w-20 bg-white rounded-xl p-2"
+alt="Kadu Cluck">
+<h1 class="text-4xl md:text-6xl font-extrabold">
+Farm Fresh
+<span class="text-yellow-300">
+Chicken
+</span>
+</h1>
+</div>
+<div class="mt-8 space-y-4">
+<a
+href="https://www.facebook.com/share/171VrNJ5jf/"
+target="_blank"
+class="block bg-blue-600 text-white rounded-3xl px-6 py-4 font-bold w-full md:w-[340px]">
+Facebook – Kadu Ga Gitahi
+</a>
+<a
+href="https://www.tiktok.com/@kadufarm"
+target="_blank"
+class="block bg-black text-white rounded-3xl px-6 py-4 font-bold w-fit">
+TikTok – @kadufarm
+</a>
+<a
+href="https://instagram.com/kadu_tandu"
+target="_blank"
+class="block bg-pink-600 text-white rounded-3xl px-6 py-4 font-bold w-fit">
+Instagram – kadu_tandu
+</a>
+</div>
+</div>
+<div>
+<a href="kadu-image-2.jpeg" target="_blank">
+<img
+src="kadu-image-2.jpeg"
+class="rounded-3xl shadow-2xl"
+alt="Fresh Chicken">
+</a>
+<div class="mt-6 space-y-4">
+<a
+href="https://chat.whatsapp.com/BhdQ2JmoGcA2YUSOETHUeO"
+target="_blank"
+class="btn bg-green-500 text-white text-lg">
+Join Market
+</a>
+<a
+href="https://maps.app.goo.gl/Gyk3oDLZw7fGQHNZA"
+target="_blank"
+class="btn bg-white text-red-800 text-lg">
+📍 Visit Location
+</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="max-w-7xl mx-auto px-4 py-12">
+<div class="card p-8">
+<h2 class="text-3xl font-bold text-red-800">
+About Kadu Cluck
+</h2>
+<p class="mt-5 text-gray-700 text-lg leading-8">
+At Kadu Cluck, we are committed to raising,
+preparing, packaging and delivering fresh chicken
+with care, consistency and genuine love.
+We focus on healthy broiler chicken,
+clean preparation,
+beautiful packaging
+and dependable delivery.
+Our goal is simple:
+to serve every customer with quality chicken,
+excellent service and a product you can trust.
+Whether it is for home,
+an event,
+or business,
+Kadu Cluck is ready to serve you.
+</p>
+<p class="mt-5 font-bold text-red-700">
+Open wed & sat• Delivery available at a fee depending on location.
+</p>
+</div>
+</section>
+
+<section class="max-w-7xl mx-auto px-4 py-10">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="bg-yellow-400 text-black rounded-3xl p-5 text-center font-bold">1.2kg – KES 500</div>
+<div class="bg-yellow-400 text-black rounded-3xl p-5 text-center font-bold">1.3kg – KES 520</div>
+<div class="bg-yellow-400 text-black rounded-3xl p-5 text-center font-bold">1.4kg – KES 560</div>
+<div class="bg-yellow-400 text-black rounded-3xl p-5 text-center font-bold">1.5kg – KES 600</div>
+<div class="bg-yellow-400 text-black rounded-3xl p-5 text-center font-bold">1.6kg – KES 650</div>
+<div class="bg-yellow-400 text-black rounded-3xl p-5 text-center font-bold">1.7kg – KES 700</div>
+<div class="bg-yellow-400 text-black rounded-3xl p-5 text-center font-bold col-span-2">1.8kg – KES 750</div>
+</div>
+</section>
+
+<section class="max-w-7xl mx-auto px-4 py-10">
+<div class="card p-8">
+<h2 class="text-3xl font-bold text-red-800">
+Place Your Order
+</h2>
+<form id="orderForm" class="grid md:grid-cols-2 gap-4 mt-6">
+<input type="text" id="name" required class="border rounded-xl p-3" placeholder="Name">
+<input type="tel" id="phone" required class="border rounded-xl p-3" placeholder="Phone Number">
+<input type="text" id="quantity" required class="border rounded-xl p-3" placeholder="Quantity (e.g. 5 birds)">
+<input type="text" id="weight" required class="border rounded-xl p-3" placeholder="weight (e.g 1.5_kg)">
+<textarea
+id="location"
+required
+class="border rounded-xl p-3 md:col-span-2"
+placeholder="Delivery location">
+</textarea>
+<button
+type="submit"
+class="btn bg-green-500 text-white text-center md:col-span-2">
+Submit Order via WhatsApp
+</button>
+</form>
+</div>
+</section>
+
+<section class="max-w-7xl mx-auto px-4 py-10 gallery">
+<h2 class="text-3xl font-bold text-red-800 text-center mb-8">
+Kadu Cluck Gallery
+</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<a href="kadu-image-1.jpeg"><img src="kadu-image-1.jpeg" loading="lazy" alt="Kadu Chicken"></a>
+<a href="kadu-image-2.jpeg"><img src="kadu-image-2.jpeg" loading="lazy" alt="Fresh Chicken"></a>
+<a href="kadu-image-3.jpeg"><img src="kadu-image-3.jpeg" loading="lazy" alt="Chicken"></a>
+<a href="kadu-image-4.jpeg"><img src="kadu-image-4.jpeg" loading="lazy" alt="Kadu Cluck"></a>
+<a href="kadu-image-5.jpeg"><img src="kadu-image-5.jpeg" loading="lazy" alt="Fresh Poultry"></a>
+<a href="kadu-image-6.jpeg"><img src="kadu-image-6.jpeg" loading="lazy" alt="Packaged Chicken"></a>
+<a href="kadu-image-7.jpeg"><img src="kadu-image-7.jpeg" loading="lazy" alt="Kadu Farm"></a>
+<a href="kadu-image-8.jpeg"><img src="kadu-image-8.jpeg" loading="lazy" alt="Chicken"></a>
+<a href="kadu-image-9.jpeg"><img src="kadu-image-9.jpeg" loading="lazy" alt="Fresh Meat"></a>
+<a href="kadu-image-10.jpeg"><img src="kadu-image-10.jpeg" loading="lazy" alt="Kadu Cluck"></a>
+<a href="kadu-image-11.jpeg"><img src="kadu-image-11.jpeg" loading="lazy" alt="Poultry"></a>
+<a href="kadu-image-12.jpeg"><img src="kadu-image-12.jpeg" loading="lazy" alt="Chicken"></a>
+</div>
+</section>
+
+<section class="max-w-7xl mx-auto px-4 py-10">
+<div class="grid md:grid-cols-2 gap-6">
+<video controls class="rounded-3xl w-full">
+<source src="kadu-video-1.mp4">
+</video>
+<video controls class="rounded-3xl w-full">
+<source src="kadu-video-2.mp4">
+</video>
+</div>
+</section>
+
+<section class="max-w-7xl mx-auto px-4 py-10">
+<div class="card p-8">
+<h2 class="text-3xl font-bold text-red-800">
+Feedback
+</h2>
+<div class="mt-6 flex justify-between flex-wrap gap-4">
+<div class="flex gap-3 flex-wrap">
+<a
+href="https://wa.me/254796795818"
+class="btn bg-yellow-400 text-black">
+🙏 Thanks
+</a>
+<a
+href="https://wa.me/254796795818"
+class="btn bg-red-600 text-white">
+⚠ Complaint
+</a>
+</div>
+<button
+onclick="chickens()"
+class="btn bg-pink-600 text-white">
+👍 Like
+</button>
+</div>
+</div>
+</section>
+
+<section class="max-w-7xl mx-auto px-4 pb-16">
+<div class="card p-8 text-center">
+<h2 class="text-3xl font-bold text-green-700">
+Join WhatsApp Group
+</h2>
+<a
+href="https://chat.whatsapp.com/BhdQ2JmoGcA2YUSOETHUeO"
+target="_blank"
+class="btn bg-green-500 text-white mt-5">
+Open WhatsApp Group
+</a>
+</div>
+</section>
+
+<footer class="bg-black text-white text-center py-8">
+<img
+src="kadu-image-1.jpeg"
+class="w-20 mx-auto rounded-xl mb-4"
+alt="Kadu Cluck">
+<p>Kadu Cluck © 2026</p>
+<p>0796795818</p>
+<p>kaducluck@gmail.com</p>
+</footer>
 
 <script>
-function copyPaybill() {
-  const text = "542415968";
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = event.currentTarget;
-    const original = btn.querySelector('small').innerText;
-    btn.querySelector('small').innerText = "Copied! 542542 | 415968";
-    setTimeout(() => {
-      btn.querySelector('small').innerText = original;
-    }, 2000);
-  });
+function chickens(){
+for(let i=0;i<15;i++){
+const bird=document.createElement("div");
+bird.className="chicken-pop";
+bird.innerHTML="🐔";
+bird.style.left=Math.random()*window.innerWidth+"px";
+bird.style.bottom="120px";
+document.body.appendChild(bird);
+setTimeout(()=>bird.remove(),2800);
 }
+}
+
+// Order Form Handler
+document.getElementById('orderForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const quantity = document.getElementById('quantity').value.trim();
+    const weight =   document.getElementById('weight').value.trim();
+    const location = document.getElementById('location').value.trim();
+
+    if (!name || !phone || !quantity || !location || !weight ) {
+        alert("Kindly fill in.Thanks");
+        return;
+    }
+
+    const message = `*New Order from Kadu Cluck*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Quantity:* ${quantity}%0A*weight:* ${weight}%0A*Location:* ${location}`;
+    
+    window.open(`https://wa.me/254796795818?text=${message}`, '_blank');
+});
 </script>
 
 </body>
