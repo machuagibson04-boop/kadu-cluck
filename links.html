@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kadu Cluck - Order Farm Fresh Chicken</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Open Graph for WhatsApp link preview -->
+  <meta property="og:title" content="Kadu Cluck - Farm Fresh Chicken & Eggs">
+  <meta property="og:description" content="Order directly on WhatsApp. Fast delivery in Nairobi.">
+  <meta property="og:image" content="logo.png">
+  <meta property="og:type" content="website">
+  
+  <style>
+    * { box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, Arial, sans-serif; 
+      text-align: center; 
+      padding: 16px 12px 80px; /* bottom padding for sticky button */
+      margin: 0;
+      min-height: 100vh;
+      background: #fff8e1;
+      position: relative;
+    }
+    /* Subtle watermark for status screenshots */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image: url('logo.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 70%;
+      opacity: 0.03;
+      z-index: -1;
+    }
+    h1 { color: #d32f2f; font-size: 28px; margin: 8px 0 4px; letter-spacing: 0.5px; }
+    .tagline { font-size: 14px; color: #555; margin-bottom: 20px; font-weight: 500; }
+    
+    .wrapper { max-width: 500px; margin: 0 auto; }
+    
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #d32f2f;
+      margin: 18px 0 10px;
+      text-align: left;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .btn { 
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #d32f2f; 
+      color: white; 
+      padding: 14px 16px; 
+      margin: 10px 0; 
+      width: 100%; 
+      border-radius: 12px; 
+      text-decoration: none; 
+      font-size: 15px; 
+      font-weight: 700; 
+      box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+      transition: transform 0.1s ease;
+    }
+    .btn:active { transform: scale(0.98); }
+    
+    /* Button colors */
+    .btn-whatsapp { background: #25D366; }
+    .btn-facebook { background: #1877F2; }
+    .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+    .btn-tiktok { background: #000; }
+    .btn-blue { background: #1a73e8; }
+    .btn-truecaller { background: #2196F3; }
+    .btn-paybill { 
+      background: #00a651; 
+      cursor: pointer;
+      position: relative;
+    }
+    .btn-paybill::after {
+      content: "Tap to copy";
+      position: absolute;
+      right: 16px;
+      font-size: 11px;
+      opacity: 0.8;
+      font-weight: 500;
+    }
+    
+    /* Sticky main CTA for Status viewers */
+    .btn-primary {
+      position: fixed;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      width: auto;
+      max-width: 500px;
+      margin: 0 auto;
+      z-index: 10;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 3px 8px rgba(37, 211, 102, 0.4); }
+      50% { box-shadow: 0 3px 16px rgba(37, 211, 102, 0.7); }
+    }
+    
+    .icon {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      border-radius: 4px;
+    }
+    
+    .paybill-text { 
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+      flex: 1;
+    }
+    .paybill-text small { 
+      font-size: 12px; 
+      font-weight: 500; 
+      opacity: 0.95;
+    }
+    
+    .divider {
+      height: 1px;
+      background: rgba(211,47,0.2);
+      margin: 24px 0 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>KADU CLUCK</h1>
+  <p class="tagline">Farm Fresh Chicken & Eggs • Nairobi</p>
+  
+  <div class="wrapper">
+    
+    <!-- Order & Contact First - Priority for Status -->
+    <p class="section-title">Order Now</p>
+    <a class="btn btn-whatsapp" href="https://wa.me/254796795818?text=Niaje%20Kadu%20Cluck%2C%20nataka%20kuorder" target="_blank">
+      <img class="icon" src="whatsapp.png" loading="eager" alt=""> Chat & Order on WhatsApp
+    </a>
+    <a class="btn btn-truecaller" href="tel:+254796795818">
+      <img class="icon" src="truecaller.png" loading="eager" alt=""> Call: 0796 795 818
+    </a>
+    <div class="btn btn-paybill" onclick="copyPaybill()">
+      <span class="icon">💰</span>
+      <div class="paybill-text">
+        Pay via M-Pesa Paybill
+        <small>Paybill: 542 | Acc: 415968</small>
+      </div>
+    </div>
+    
+    <div class="divider"></div>
+    
+    <p class="section-title">Find Us Online</p>
+    <a class="btn" href="https://machuagibson04-boop.github.io/Kadu-Cluck/" target="_blank">
+      <img class="icon" src="logo.png" alt=""> Main Website
+    </a>
+    <a class="btn btn-whatsapp" href="https://chat.whatsapp.com/BhdQ2JmoGcA2YUSOETHUeO" target="_blank">
+      <img class="icon" src="whatsapp-b.png" alt=""> Join WhatsApp Group
+    </a>
+    <a class="btn btn-facebook" href="https://www.facebook.com/share/171VrNJ5jf/" target="_blank">
+      <img class="icon" src="facebook.png" alt=""> Facebook Page
+    </a>
+    <a class="btn btn-instagram" href="https://instagram.com/kadu_tandu" target="_blank">
+      <img class="icon" src="instagram.png" alt=""> Instagram
+    </a>
+    <a class="btn btn-tiktok" href="https://www.tiktok.com/@kadufarm" target="_blank">
+      <img class="icon" src="tiktok.png" alt=""> TikTok
+    </a>
+    <a class="btn btn-blue" href="https://maps.app.goo.gl/Gyk3oDLZw7fGQHNZA" target="_blank">
+      <span class="icon">📍</span> Get Directions
+    </a>
+    
+  </div>
+  
+  <!-- Sticky CTA - Shows when scrolling -->
+  <a class="btn btn-whatsapp btn-primary" href="https://wa.me/254796795818?text=Niaje%20Kadu%20Cluck%2C%20nataka%20kuorder" target="_blank">
+    <img class="icon" src="whatsapp.png" alt=""> Order on WhatsApp
+  </a>
+  
+  <p style="margin-top:24px; font-size:11px; color:#777;">© Kadu Cluck 2026</p>
+
+<script>
+function copyPaybill() {
+  const text = "542415968";
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = event.currentTarget;
+    const original = btn.querySelector('small').innerText;
+    btn.querySelector('small').innerText = "Copied! 542 | 415968";
+    setTimeout(() => {
+      btn.querySelector('small').innerText = original;
+    }, 2000);
+  });
+}
+</script>
+
+</body>
+</html>
